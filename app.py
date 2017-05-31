@@ -1,4 +1,6 @@
 # coding: utf-8
+# All of this code came from here
+# https://www.theodo.fr/blog/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/
 
 from flask import Flask
 import os
