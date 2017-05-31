@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "super secret key"
 
 # Admin flask
-admin = Admin(app, name='microblog', template_mode='bootstrap3')
+admin = Admin(app, name='Dungeons and Dragons', template_mode='bootstrap3')
 
 admin.add_view(ModelView(Character, db.session))
 admin.add_view(ModelView(Race, db.session))
