@@ -48,10 +48,11 @@ class Character(BaseModel, db.Model):
     level = Column(Integer)
     description = Column(String)
 
-    # TODO change it to custom type
     # http://docs.sqlalchemy.org/en/latest/orm/join_conditions.html
     race_id = Column(Integer, ForeignKey("races.id"))
-    race = db.relationship("Address", foreign_keys=[race_id])
+    race = db.relationship("Race", foreign_keys=[race_id])
+
+    # TODO change it to custom type
     klass = Column(String)
 
     # Character carac

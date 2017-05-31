@@ -3,12 +3,22 @@
 # https://www.theodo.fr/blog/2017/03/developping-a-flask-web-app-with-a-postresql-database-making-all-the-possible-errors/
 
 from flask import Flask
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 import os
 
-from models import db
+from models import db, Character, Race
 
 # Create Flask app
 app = Flask(__name__)
+app.secret_key = "super secret key"
+
+# Admin flask
+admin = Admin(app, name='microblog', template_mode='bootstrap3')
+
+admin.add_view(ModelView(Character, db.session))
+admin.add_view(ModelView(Race, db.session))
+
 
 # Define postgresql config
 POSTGRES = {
