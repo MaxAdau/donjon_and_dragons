@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 import datetime
 
 # Initialize a database object
@@ -23,7 +23,7 @@ class Character(BaseModel, db.Model):
     __tablename__ = 'chars'
 
     # Incremental ID
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
 
     # About the character
     player_name = Column(String)
@@ -34,10 +34,11 @@ class Character(BaseModel, db.Model):
 
     # http://docs.sqlalchemy.org/en/latest/orm/join_conditions.html
     race_id = Column(Integer, ForeignKey("races.id"))
-    race = db.relationship("Race", foreign_keys=[race_id])
+    race = db.relationship("Race")
 
     # TODO change it to custom type
-    klass = Column(String)
+    klass_id = Column(Integer, ForeignKey("classes.id"))
+    klass = db.relationship("Class")
 
     # Character carac
     # TODO put it in a custom type
@@ -72,8 +73,11 @@ class Character(BaseModel, db.Model):
     SAVE_will = Column(Integer)
 
     # Weapons # TODO Change type to weapon type
-    right_hand = Column(String)
-    left_hand = Column(String)
+    right_hand_1 = Column(String)
+    left_hand_1 = Column(String)
+    right_hand_2 = Column(String)
+    left_hand_2 = Column(String)
+
 
     # Armor # TODO Change type armor/shield type
     armor = Column(String)
@@ -82,8 +86,6 @@ class Character(BaseModel, db.Model):
     # Stuff # TODO change it to list os equipement type
     head_protection = Column(String)
     hand_protection = Column(String)
-    foot_protection = Column(String)
-    ring_1 = Column(String)
 
 
 class Race(BaseModel, db.Model):
@@ -91,7 +93,7 @@ class Race(BaseModel, db.Model):
     __tablename__ = 'races'
 
     # incremental ID
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
 
     # About the race
     name = Column(String)
@@ -99,6 +101,47 @@ class Race(BaseModel, db.Model):
 
     # TODO move it to an ENUM type
     size = Column(String)
+
+    def __repr__(self):
+        return self.name
+
+
+class Class(BaseModel, db.Model):
+    """Model for the class table"""
+    __tablename__ = 'classes'
+
+    # incremental ID
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+
+    # About the race
+    name = Column(String)
+    description = Column(String)
+
+    def __repr__(self):
+        return self.name
+
+
+class Weapon(BaseModel, db.Model):
+    """Model for the weapon table"""
+    __tablename__ = 'weapons'
+
+    # incremental ID
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+
+    # About the race
+    name = Column(String)
+    description = Column(String)
+
+    # Damage
+    dmg_S = Column(String)
+    dmg_M = Column(String)
+    critical = Column(Integer)
+    range_increment = Column(Integer) # in meter
+
+    # Other
+    weight = Column(Float) # in Kilo
+    dmg_type = Column(String)
+    cost = Column(String) # in GP
 
     def __repr__(self):
         return self.name

@@ -7,7 +7,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 import os
 
-from models import db, Character, Race
+from models import db, Character, Race, Class, Weapon
 
 # Create Flask app
 app = Flask(__name__)
@@ -18,7 +18,8 @@ admin = Admin(app, name='Dungeons and Dragons', template_mode='bootstrap3')
 
 admin.add_view(ModelView(Character, db.session))
 admin.add_view(ModelView(Race, db.session))
-
+admin.add_view(ModelView(Class, db.session))
+admin.add_view(ModelView(Weapon, db.session))
 
 # Define postgresql config
 POSTGRES = {
@@ -47,4 +48,3 @@ if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
