@@ -7,7 +7,8 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 import os
 
-from models.models import db, Race, Class, Weapon
+from models.base_model import db
+from models.models import Race, Class, Weapon
 from models.character import Character
 
 # Create Flask app
