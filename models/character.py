@@ -46,7 +46,7 @@ class Character(BaseModel, db.Model):
     AC_touch = Column(Integer)
 
     # Size and speed
-    size = Column(Integer)
+    size = Column(String) # TODO Take it from race.size
     initiative = Column(Integer)
 
     # TODO Should be calculated

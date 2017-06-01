@@ -60,7 +60,7 @@ class Weapon(BaseModel, db.Model):
     # Damage
     dmg_S = Column(String)
     dmg_M = Column(String)
-    critical = Column(Integer)
+    critical = Column(String)
     range_increment = Column(Integer) # in meter
 
     # Other
