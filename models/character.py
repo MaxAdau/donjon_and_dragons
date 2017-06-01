@@ -2,7 +2,7 @@
 
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 
-from models.base_model import db, BaseModel
+from models.models import db, BaseModel
 
 class Character(BaseModel, db.Model):
     """Model for the character table"""

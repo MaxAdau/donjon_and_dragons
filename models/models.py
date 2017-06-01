@@ -1,9 +1,13 @@
 # coding: utf-8
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
 import datetime
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 
-from models.base_model import db, BaseModel
+# Initialize a database object
+# Could be moved to a model.py file
+db = SQLAlchemy()
+
 
 class BaseModel(db.Model):
     """Base data model for all objects"""
@@ -11,7 +15,6 @@ class BaseModel(db.Model):
 
     def __init__(self, *args):
         super(BaseModel, self).__init__(*args)
-
 
 class Race(BaseModel, db.Model):
     """Model for the race table"""
