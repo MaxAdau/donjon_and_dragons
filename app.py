@@ -7,7 +7,7 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 import os
 
-from models import db, Character, Race, Class, Weapon
+from models.models import db, Character, Race, Class, Weapon
 
 # Create Flask app
 app = Flask(__name__)
@@ -37,7 +37,6 @@ app.config['DEBUG'] = True
 
 # Connect SQLAlchemy object with Flask applicatoin
 db.init_app(app)
-
 
 @app.route('/')
 def hello():
