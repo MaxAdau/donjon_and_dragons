@@ -23,7 +23,7 @@ class Character(BaseModel, db.Model):
     __tablename__ = 'chars'
 
     # Incremental ID
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    id = Column(Integer, primary_key=True)
 
     # About the character
     player_name = Column(String)
@@ -93,7 +93,7 @@ class Race(BaseModel, db.Model):
     __tablename__ = 'races'
 
     # incremental ID
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    id = Column(Integer, primary_key=True)
 
     # About the race
     name = Column(String)
@@ -111,7 +111,7 @@ class Class(BaseModel, db.Model):
     __tablename__ = 'classes'
 
     # incremental ID
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    id = Column(Integer, primary_key=True)
 
     # About the race
     name = Column(String)
@@ -126,7 +126,7 @@ class Weapon(BaseModel, db.Model):
     __tablename__ = 'weapons'
 
     # incremental ID
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    id = Column(Integer, primary_key=True)
 
     # About the race
     name = Column(String)

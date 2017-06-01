@@ -23,10 +23,10 @@ admin.add_view(ModelView(Weapon, db.session))
 
 # Define postgresql config
 POSTGRES = {
-    'user': 'lsmpiaeycofhbv',
-    'pw': '2e21b7e80e8548b0badd911dae1397ed5d39efd9e56d71b4a8d29131c86c4cb4',
-    'db': 'd9ujtmrcjsae3i',
-    'host': 'ec2-54-247-177-33.eu-west-1.compute.amazonaws.com',
+    'user': 'lklldgwlxcjjlc',
+    'pw': '601058637def6997cf9b0ce63ee3ed4c1139e2a0e0cc4e79fbb4591fea6e56cd',
+    'db': 'd9oda19f6e3vt6',
+    'host': 'ec2-54-246-108-119.eu-west-1.compute.amazonaws.com',
     'port': '5432'
 }
 
