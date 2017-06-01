@@ -14,7 +14,7 @@ class BaseModel(db.Model):
     __abstract__ = True
 
     def __init__(self, *args):
-        super().__init__(*args)
+        super(BaseModel, self).__init__(*args)
 
 
 # TODO move it to another file
@@ -102,9 +102,3 @@ class Race(BaseModel, db.Model):
 
     def __repr__(self):
         return self.name
-
-
-
-
-
-
